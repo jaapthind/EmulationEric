@@ -1090,16 +1090,22 @@ const ProfileStore = {
     
     randomizeAvatar: () => {
         AudioSystem.playEvent('click');
-        const c = CONFIG.colors[Math.floor(Math.random() * 10)]; // Pick from top row colors
-        const f = ProfileStore.faces[Math.floor(Math.random() * ProfileStore.faces.length)];
+        const c = CONFIG.colors[Math.floor(Math.random() * 10)]; 
+        // FIX: Point to the new location of the faces list
+        const fList = ProfileStore.data.skins.faces; 
+        const f = fList[Math.floor(Math.random() * fList.length)];
+        
         ProfileStore.data.avatarColor = c;
         ProfileStore.data.avatarFace = f;
         ProfileStore.save();
         
         const av = document.getElementById('avatar-preview');
-        av.style.backgroundColor = c;
-        av.innerText = f;
-        document.getElementById('input-name').value = ProfileStore.data.name;
+        if (av) {
+            av.style.backgroundColor = c;
+            av.innerText = f;
+        }
+        const nameInput = document.getElementById('input-name');
+        if (nameInput) nameInput.value = ProfileStore.data.name;
     }
 };
 
