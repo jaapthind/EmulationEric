@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Scribble.IO - P2P Multiplayer</title>
+<title>EMULATION ERIC</title>
 <style>
     /* ==========================================================================
        GLOBAL CSS VARIABLES & THEME DEFINITIONS
@@ -292,7 +292,7 @@
         grid-template-columns: 250px 1fr 300px;
         grid-template-rows: 80px 1fr;
         width: 100%;
-        height: 100%;
+        height: 95vh;
         gap: 15px;
         padding: 15px;
     }
@@ -731,35 +731,222 @@ const CONFIG = {
     ]
 };
 
+
+
 const DICTIONARY = [
-    "apple", "banana", "cat", "dog", "elephant", "fish", "giraffe", "horse", "igloo", "jacket",
-    "kite", "lion", "monkey", "nest", "octopus", "penguin", "queen", "rabbit", "snake", "turtle",
-    "umbrella", "violin", "whale", "xylophone", "yacht", "zebra", "airplane", "boat", "car", "helicopter",
-    "motorcycle", "train", "truck", "bicycle", "bus", "skateboard", "rollercoaster", "rocket", "submarine", "tractor",
-    "guitar", "piano", "drum", "flute", "trumpet", "saxophone", "harp", "accordion", "banjo", "clarinet",
-    "computer", "phone", "television", "radio", "camera", "clock", "watch", "headphones", "microphone", "laptop",
-    "sun", "moon", "star", "cloud", "rain", "snow", "wind", "storm", "lightning", "rainbow",
-    "tree", "flower", "grass", "leaf", "bush", "forest", "mountain", "river", "ocean", "lake",
-    "pizza", "burger", "hotdog", "sandwich", "taco", "burrito", "sushi", "pasta", "salad", "soup",
-    "cake", "cookie", "icecream", "chocolate", "candy", "donut", "pie", "pancake", "waffle", "muffin",
-    "shirt", "pants", "shorts", "dress", "skirt", "jacket", "coat", "sweater", "socks", "shoes",
-    "hat", "gloves", "scarf", "belt", "tie", "glasses", "necklace", "ring", "bracelet", "earrings",
-    "house", "building", "apartment", "castle", "tent", "cabin", "mansion", "skyscraper", "bridge", "tower",
-    "door", "window", "roof", "wall", "floor", "ceiling", "stairs", "chimney", "fence", "gate",
-    "table", "chair", "sofa", "bed", "desk", "dresser", "cabinet", "shelf", "mirror", "rug",
-    "doctor", "nurse", "teacher", "police", "firefighter", "chef", "farmer", "pilot", "astronaut", "artist",
-    "soccer", "basketball", "baseball", "football", "tennis", "golf", "volleyball", "hockey", "rugby", "cricket",
-    "swimming", "running", "jumping", "dancing", "singing", "reading", "writing", "drawing", "painting", "cooking",
-    "happy", "sad", "angry", "surprised", "scared", "tired", "excited", "bored", "confused", "nervous",
-    "red", "blue", "green", "yellow", "orange", "purple", "pink", "brown", "black", "white",
-    "circle", "square", "triangle", "rectangle", "oval", "star", "heart", "diamond", "hexagon", "octagon",
-    "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
-    "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday",
-    "january", "february", "march", "april", "may", "june", "july", "august", "september", "october",
-    "spring", "summer", "autumn", "winter",
-    "book", "pen", "pencil", "paper", "notebook", "eraser", "ruler", "scissors", "glue", "tape",
-    "sword", "shield", "bow", "arrow", "gun", "bomb", "knife", "spear", "axe", "hammer",
-    "ghost", "vampire", "zombie", "monster", "alien", "robot", "dragon", "unicorn", "mermaid", "fairy"
+    // SECTION 1: MAMMALS & MARSUPIALS
+    "aardvark", "alpaca", "antelope", "ape", "armadillo", "baboon", "badger", "bat", "bear", "beaver", 
+    "bison", "boar", "buffalo", "camel", "capybara", "caribou", "cat", "cheetah", "chimpanzee", "chinchilla", 
+    "chipmunk", "cougar", "cow", "coyote", "deer", "dingo", "dog", "donkey", "elephant", "elk", 
+    "ferret", "fox", "gazelle", "gerbil", "giraffe", "goat", "gopher", "gorilla", "guinea pig", "hamster", 
+    "hedgehog", "hippopotamus", "horse", "hyena", "jackal", "jaguar", "kangaroo", "koala", "lemur", "leopard", 
+    "lion", "llama", "lynx", "macaque", "manatee", "meerkat", "mink", "mole", "mongoose", "monkey", 
+    "moose", "mouse", "mule", "orangutan", "otter", "ox", "panda", "panther", "pig", "platypus", 
+    "polar bear", "porcupine", "possum", "puma", "rabbit", "raccoon", "rat", "reindeer", "rhinoceros", "sheep", 
+    "skunk", "sloth", "squirrel", "tiger", "wallaby", "walrus", "weasel", "wolf", "wombat", "yak", "zebra",
+
+    // SECTION 2: BIRDS & FLYING CREATURES
+    "albatross", "bluebird", "bluejay", "budgie", "buzzard", "canary", "cardinal", "chickadee", "chicken", "cockatoo", 
+    "condor", "crane", "crow", "cuckoo", "dove", "duck", "eagle", "emu", "falcon", "finch", 
+    "flamingo", "goose", "gull", "hawk", "heron", "hummingbird", "ibis", "kingfisher", "kiwi", "macaw", 
+    "magpie", "mockingbird", "ostrich", "owl", "parakeet", "parrot", "partridge", "peacock", "pelican", "penguin", 
+    "pheasant", "pigeon", "puffin", "quail", "raven", "robin", "rooster", "seagull", "sparrow", "stork", 
+    "swallow", "swan", "toucan", "turkey", "vulture", "woodpecker", "wren",
+
+    // SECTION 3: REPTILES & AMPHIBIANS
+    "alligator", "anaconda", "axolotl", "boa", "bullfrog", "chameleon", "cobra", "crocodile", "frog", "gecko", 
+    "gila monster", "iguana", "komodo dragon", "lizard", "mamba", "newt", "python", "rattlesnake", "salamander", "skink", 
+    "snake", "tadpole", "toad", "tortoise", "turtle", "viper",
+
+    // SECTION 4: FISH & MARINE LIFE
+    "anchovy", "anglerfish", "barnacle", "barracuda", "bass", "blowfish", "blue whale", "carp", "catfish", "clam", 
+    "clownfish", "cod", "coral", "crab", "cuttlefish", "dolphin", "eel", "flounder", "goldfish", "guppy", 
+    "haddock", "halibut", "herring", "jellyfish", "kelp", "killer whale", "koi", "krill", "lobster", "mackerel", 
+    "manta ray", "marlin", "narwhal", "octopus", "orca", "oyster", "piranha", "plankton", "pufferfish", "salmon", 
+    "sardine", "scallop", "sea anemone", "sea lion", "sea turtle", "sea urchin", "seahorse", "seal", "shark", "shrimp", 
+    "snail", "sponge", "squid", "starfish", "stingray", "sturgeon", "swordfish", "trout", "tuna", "whale",
+
+    // SECTION 5: INSECTS, ARACHNIDS & BUGS
+    "ant", "aphid", "bedbug", "bee", "beetle", "butterfly", "caterpillar", "centipede", "cicada", "cockroach", 
+    "cricket", "daddy longlegs", "dragonfly", "earwig", "firefly", "flea", "fly", "gnat", "grasshopper", "grub", 
+    "hornet", "ladybug", "locust", "louse", "maggot", "mantis", "millipede", "mite", "mosquito", "moth", 
+    "roach", "scorpion", "slug", "snail", "spider", "stick bug", "tarantula", "termite", "tick", "wasp", "worm",
+
+    // SECTION 6: FRUITS & BERRIES
+    "apple", "apricot", "avocado", "banana", "blackberry", "blood orange", "blueberry", "boysenberry", "cantaloupe", "cherry", 
+    "clementine", "coconut", "cranberry", "date", "dragonfruit", "elderberry", "fig", "gooseberry", "grape", "grapefruit", 
+    "guava", "honeydew", "jackfruit", "kiwi", "kumquat", "lemon", "lime", "lychee", "mango", "melon", 
+    "mulberry", "nectarine", "olive", "orange", "papaya", "passionfruit", "peach", "pear", "persimmon", "pineapple", 
+    "plum", "pomegranate", "plantain", "pomelo", "raspberry", "starfruit", "strawberry", "tangerine", "tomato", "watermelon",
+
+    // SECTION 7: VEGETABLES, ROOTS & HERBS
+    "artichoke", "arugula", "asparagus", "basil", "bean", "beet", "bell pepper", "broccoli", "brussels sprout", "cabbage", 
+    "carrot", "cauliflower", "celery", "chickpea", "chili", "chive", "cilantro", "corn", "cucumber", "dill", 
+    "eggplant", "garlic", "ginger", "green bean", "jalapeno", "kale", "leek", "lentil", "lettuce", "mint", 
+    "mushroom", "mustard", "onion", "oregano", "parsley", "parsnip", "pea", "peanut", "pepper", "potato", 
+    "pumpkin", "radish", "rosemary", "scallion", "seaweed", "soybean", "spinach", "squash", "sweet potato", "thyme", 
+    "turnip", "yam", "zucchini",
+
+    // SECTION 8: DESSERTS, SWEETS & SNACKS
+    "apple pie", "biscuit", "brownie", "bubblegum", "cake", "candy", "candy cane", "caramel", "cheesecake", "chocolate", 
+    "chocolate chip", "churro", "cobbler", "cookie", "cotton candy", "crepe", "croissant", "cupcake", "custard", "donut", 
+    "eclair", "flan", "fondant", "fudge", "gelato", "gingerbread", "gummy bear", "ice cream", "icing", "jelly", 
+    "jellybean", "licorice", "lollipop", "macaron", "marshmallow", "marzipan", "muffin", "nougat", "pancake", "pastry", 
+    "pie", "popsicle", "pudding", "scone", "shortbread", "sorbet", "sprinkles", "syrup", "taffy", "tart", 
+    "tiramisu", "truffle", "vanilla", "wafer", "waffle",
+
+    // SECTION 9: BEVERAGES & DRINKS
+    "ale", "apple juice", "beer", "boba", "bourbon", "brandy", "broth", "champagne", "cider", "cocktail", 
+    "coffee", "cola", "espresso", "frappe", "gin", "hot chocolate", "iced tea", "juice", "kefir", "kombucha", 
+    "latte", "lemonade", "liquor", "macchiato", "margarita", "martini", "mead", "milk", "milkshake", "mocha", 
+    "mojito", "punch", "root beer", "rum", "sake", "slushie", "smoothie", "soda", "soup", "stout", 
+    "tea", "tequila", "vodka", "water", "whiskey", "wine",
+
+    // SECTION 10: MEALS & SAVORY FOODS
+    "bacon", "bagel", "baguette", "barbecue", "beef", "bread", "brisket", "burger", "burrito", "butter", 
+    "calzone", "caviar", "cereal", "cheese", "chicken", "chili", "chips", "chop suey", "chowder", "corndog", 
+    "cracker", "curry", "dumpling", "egg", "empanada", "enchilada", "fajita", "falafel", "fish", "fondue", 
+    "french fries", "fried rice", "gravy", "grilled cheese", "guacamole", "gyro", "ham", "hamburger", "hashbrowns", "hotdog", 
+    "hummus", "kebab", "lasagna", "macaroni", "meatball", "meatloaf", "nachos", "noodle", "omelet", "pasta", 
+    "pepperoni", "pizza", "pork", "poutine", "pretzel", "quesadilla", "quiche", "ramen", "ravioli", "ribs", 
+    "rice", "roast", "salami", "salmon", "salsa", "sandwich", "sausage", "seafood", "shrimp", "soup", 
+    "spaghetti", "steak", "stew", "sushi", "taco", "tamale", "toast", "tofu", "tortilla", "turkey", 
+
+    // SECTION 11: KITCHEN & COOKING TOOLS
+    "apron", "baking sheet", "blender", "bowl", "cabinet", "can opener", "chopsticks", "cleaver", "coffee maker", "colander", 
+    "corkscrew", "cup", "cutting board", "dishwasher", "fork", "freezer", "fridge", "frying pan", "funnel", "glass", 
+    "grater", "grill", "kettle", "knife", "ladle", "measuring cup", "microwave", "mixer", "mug", "napkin", 
+    "oven", "oven mitt", "pan", "peeler", "pitcher", "plate", "pot", "refrigerator", "rolling pin", "saucepan", 
+    "scissors", "skillet", "spatula", "sponge", "spoon", "stove", "strainer", "teapot", "thermometer", "timer", 
+    "toaster", "tongs", "tray", "tupperware", "whisk", "wok",
+
+    // SECTION 12: FURNITURE & HOME DECOR
+    "armchair", "bathtub", "bed", "bedside table", "bench", "blanket", "blind", "bookcase", "bookshelf", "bunk bed", 
+    "cabinet", "carpet", "ceiling", "chair", "chandelier", "chest", "clock", "closet", "couch", "cradle", 
+    "crib", "cushion", "desk", "door", "doorbell", "doormat", "dresser", "fan", "fireplace", "floor", 
+    "frame", "futon", "hammock", "lamp", "lampshade", "lightbulb", "mattress", "mirror", "nightstand", "painting", 
+    "pillow", "poster", "radiator", "recliner", "roof", "rug", "shelf", "shower", "sink", "sofa", 
+    "stairs", "stool", "table", "television", "toilet", "towel", "vase", "wall", "wallpaper", "wardrobe", 
+    "window",
+
+    // SECTION 13: CLOTHING & ACCESSORIES
+    "apron", "backpack", "bandana", "beanie", "belt", "bikini", "blazer", "blouse", "boots", "bowtie", 
+    "bracelet", "bra", "briefs", "button", "cap", "cape", "cardigan", "coat", "corset", "crown", 
+    "dress", "earmuffs", "earrings", "eyepatch", "fedora", "flip flops", "glasses", "gloves", "goggles", "gown", 
+    "hairband", "hat", "headband", "helmet", "high heels", "hoodie", "jacket", "jeans", "jersey", "jewelry", 
+    "khakis", "kimono", "laces", "leggings", "mask", "mittens", "necklace", "nightgown", "overalls", "pajamas", 
+    "pants", "parka", "purse", "raincoat", "ring", "robe", "sandals", "scarf", "scrubs", "shirt", 
+    "shoes", "shorts", "skirt", "slacks", "slippers", "sneakers", "socks", "sombrero", "suit", "sunglasses", 
+    "sweater", "swimsuit", "t-shirt", "tie", "tights", "toga", "top hat", "trousers", "tuxedo", "umbrella", 
+    "underwear", "uniform", "vest", "visor", "wallet", "watch", "wig",
+
+    // SECTION 14: HUMAN ANATOMY & BODY PARTS
+    "ankle", "appendix", "arm", "armpit", "back", "beard", "belly", "belly button", "blood", "bone", 
+    "brain", "breast", "calf", "cheek", "chest", "chin", "ear", "eardrum", "elbow", "eye", 
+    "eyebrow", "eyelash", "eyelid", "face", "finger", "fingernail", "foot", "forehead", "freckle", "gums", 
+    "hair", "hand", "head", "heart", "heel", "hip", "intestine", "jaw", "joint", "kidney", 
+    "knee", "knuckle", "leg", "lip", "liver", "lung", "mouth", "muscle", "mustache", "nail", 
+    "neck", "nerve", "nose", "nostril", "palm", "pelvis", "pore", "pupil", "rib", "scar", 
+    "shin", "shoulder", "skeleton", "skin", "skull", "spine", "stomach", "sweat", "tear", "tears", 
+    "teeth", "thigh", "throat", "thumb", "toe", "toenail", "tongue", "tooth", "vein", "waist", "wrinkle",
+
+    // SECTION 15: PROFESSIONS & JOBS
+    "accountant", "actor", "actress", "architect", "artist", "astronaut", "athlete", "author", "baker", "banker", 
+    "barber", "bartender", "blacksmith", "boss", "builder", "butcher", "carpenter", "cashier", "chef", "chemist", 
+    "clown", "coach", "dentist", "detective", "director", "doctor", "driver", "electrician", "engineer", "farmer", 
+    "firefighter", "fisherman", "florist", "guard", "gymnast", "hairdresser", "historian", "janitor", "journalist", "judge", 
+    "lawyer", "librarian", "magician", "maid", "manager", "mechanic", "miner", "model", "musician", "ninja", 
+    "nurse", "painter", "pharmacist", "photographer", "pilot", "pirate", "plumber", "poet", "police", "politician", 
+    "president", "priest", "principal", "programmer", "sailor", "scientist", "secretary", "singer", "soldier", "spy", 
+    "surgeon", "tailor", "teacher", "thief", "waiter", "waitress", "writer",
+
+    // SECTION 16: SPORTS, GAMES & HOBBIES
+    "archery", "arena", "badminton", "ball", "balloon", "base", "baseball", "basketball", "bat", "billiards", 
+    "board game", "bowling", "boxing", "cards", "catch", "checkers", "chess", "cleats", "climbing", "coach", 
+    "cricket", "crossword", "curling", "cycling", "darts", "dice", "diving", "dodgeball", "dominoes", "fencing", 
+    "fishing", "football", "frisbee", "goal", "golf", "gymnastics", "helmet", "hockey", "home run", "hoop", 
+    "hunting", "ice skating", "judo", "jump rope", "karate", "kayaking", "kite", "lacrosse", "marathon", "medal", 
+    "net", "olympics", "paintball", "parachute", "poker", "pool", "puck", "puzzle", "racket", "referee", 
+    "rollerblading", "rowing", "rugby", "running", "sailing", "score", "scuba", "skateboarding", "skating", "skiing", 
+    "skydiving", "snowboarding", "soccer", "softball", "stadium", "surfing", "swimming", "tag", "team", "tennis", 
+    "touchdown", "track", "trampoline", "trophy", "umpire", "volleyball", "water polo", "wrestling", "yoga",
+
+    // SECTION 17: MUSICAL INSTRUMENTS & AUDIO
+    "accordion", "acoustic", "amplifier", "bagpipes", "banjo", "bass", "beat", "bell", "bongo", "brass", 
+    "bugle", "castanets", "cello", "chimes", "choir", "chord", "clarinet", "concert", "cymbals", "drum", 
+    "drumsticks", "flute", "french horn", "gong", "guitar", "harmonica", "harp", "headphones", "horn", "kazoo", 
+    "keyboard", "lute", "lyrics", "mandolin", "maracas", "marimba", "melody", "metronome", "mic", "microphone", 
+    "music", "note", "oboe", "ocarina", "orchestra", "organ", "piano", "piccolo", "radio", "record", 
+    "rhythm", "saxophone", "singer", "song", "speaker", "strings", "synthesizer", "tambourine", "treble", "trombone", 
+    "trumpet", "tuba", "ukulele", "vibraphone", "viola", "violin", "vocals", "whistle", "xylophone",
+
+    // SECTION 18: VEHICLES & TRANSPORTATION
+    "airplane", "ambulance", "anchor", "automobile", "balloon", "bicycle", "bike", "blimp", "boat", "broomstick", 
+    "bulldozer", "bus", "cab", "cable car", "canoe", "car", "carriage", "cart", "chariot", "chopper", 
+    "crane", "cruise ship", "dirt bike", "engine", "ferry", "fire engine", "firetruck", "forklift", "freight", "glider", 
+    "go-kart", "helicopter", "hovercraft", "jeep", "jet", "jet ski", "kayak", "limousine", "minivan", "moped", 
+    "motorcycle", "parachute", "pickup", "plane", "raft", "rickshaw", "rocket", "sailboat", "scooter", "ship", 
+    "skateboard", "skates", "sled", "sleigh", "spaceship", "submarine", "subway", "tank", "taxi", "tire", 
+    "tractor", "train", "tram", "tricycle", "truck", "unicycle", "van", "wagon", "wheel", "wheelchair", 
+    "yacht", "zeppelin",
+
+    // SECTION 19: WEAPONS, ARMOR & MILITARY
+    "ammunition", "armor", "arrow", "artillery", "axe", "barricade", "bazooka", "blade", "bomb", "boomerang", 
+    "bow", "bullet", "cannon", "castle", "catapult", "chainmail", "club", "crossbow", "dagger", "dart", 
+    "dynamite", "explosive", "fort", "grenade", "gun", "gunpowder", "halberd", "helmet", "katana", "knife", 
+    "knight", "lance", "laser", "mace", "machete", "missile", "moat", "musket", "nunchucks", "pistol", 
+    "poison", "radar", "revolver", "rifle", "rocket", "rope", "scabbard", "shield", "shotgun", "slingshot", 
+    "sniper", "spear", "spike", "staff", "sword", "tank", "target", "torpedo", "trap", "trident", 
+    "whip",
+
+    // SECTION 20: NATURE, WEATHER & GEOGRAPHY
+    "air", "ash", "avalanche", "beach", "blizzard", "boulder", "branch", "breeze", "bush", "canyon", 
+    "cave", "clay", "cliff", "climate", "cloud", "coast", "continent", "coral", "country", "creek", 
+    "crystal", "cyclone", "desert", "dew", "dirt", "dust", "earth", "earthquake", "equator", "farm", 
+    "field", "fire", "flood", "flower", "fog", "forest", "frost", "garden", "geyser", "glacier", 
+    "globe", "grass", "ground", "hail", "hill", "hurricane", "ice", "iceberg", "island", "jungle", 
+    "lake", "leaf", "lightning", "log", "magma", "map", "meadow", "monsoon", "mountain", "mud", 
+    "nature", "oasis", "ocean", "park", "path", "peak", "pebble", "petal", "planet", "plant", 
+    "pond", "puddle", "rain", "rainbow", "rainforest", "river", "rock", "root", "sand", "sandstorm", 
+    "sea", "seed", "sky", "smog", "smoke", "snow", "snowflake", "soil", "spring", "star", 
+    "stem", "stick", "stone", "storm", "stream", "sun", "swamp", "thorn", "thunder", "tornado", 
+    "tree", "tsunami", "tundra", "twig", "valley", "vine", "volcano", "water", "waterfall", "wave", 
+    "weather", "weed", "wind", "world",
+
+    // SECTION 21: SPACE & ASTRONOMY
+    "alien", "asteroid", "astronaut", "astronomy", "atmosphere", "black hole", "comet", "constellation", "cosmos", "crater", 
+    "dust", "earth", "eclipse", "galaxy", "gravity", "jupiter", "lightyear", "mars", "mercury", "meteor", 
+    "meteorite", "milky way", "moon", "nebulas", "neptune", "orbit", "planet", "pluto", "quasar", "radar", 
+    "radiation", "ring", "rocket", "rover", "satellite", "saturn", "shooting star", "sky", "solar", "space", 
+    "space station", "spaceship", "spacesuit", "star", "sun", "supernova", "telescope", "ufo", "universe", "uranus", 
+    "vacuum", "venus", "void",
+
+    // SECTION 22: COLORS, SHAPES & ABSTRACT
+    "angle", "black", "blue", "bottom", "bright", "bronze", "brown", "circle", "clear", "color", 
+    "cone", "corner", "cross", "cube", "curve", "cyan", "cylinder", "dark", "diamond", "dot", 
+    "edge", "gold", "gray", "green", "heart", "hexagon", "invisible", "left", "light", "line", 
+    "magenta", "neon", "octagon", "orange", "oval", "pattern", "pentagon", "pink", "point", "purple", 
+    "pyramid", "rainbow", "rectangle", "red", "right", "shape", "silver", "sphere", "spiral", "square", 
+    "star", "straight", "stripe", "teal", "top", "triangle", "white", "yellow", "zigzag",
+
+    // SECTION 23: FANTASY, MYTHOLOGY & SCI-FI
+    "alchemy", "alien", "angel", "android", "avatar", "banshee", "beast", "centaur", "clone", "cursed", 
+    "cyborg", "demon", "dragon", "dwarf", "elf", "fairy", "frankenstein", "ghost", "giant", "goblin", 
+    "golem", "griffin", "hologram", "hydra", "jedi", "kraken", "laser", "leprechaun", "magic", "mermaid", 
+    "minotaur", "monster", "mutant", "myth", "ninja", "ogre", "orc", "pegasus", "phantom", "phoenix", 
+    "pixie", "portal", "potion", "robot", "scroll", "siren", "spell", "spirit", "superhero", "teleport", 
+    "time machine", "troll", "unicorn", "vampire", "wand", "werewolf", "witch", "wizard", "yeti", "zombie",
+
+    // SECTION 24: TOOLS, TECH & ELECTRONICS
+    "alarm", "algorithm", "antenna", "app", "battery", "bluetooth", "browser", "button", "cable", "calculator", 
+    "camera", "cellphone", "charger", "chip", "clock", "code", "computer", "controller", "cursor", "data", 
+    "database", "device", "disk", "drone", "earbuds", "electricity", "email", "engine", "file", "flash drive", 
+    "gear", "generator", "gps", "hacker", "hard drive", "headphones", "internet", "keyboard", "laptop", "laser", 
+    "lens", "machine", "magnet", "memory", "message", "microphone", "microscope", "modem", "monitor", "motherboard", 
+    "mouse", "network", "password", "pc", "phone", "pixel", "plug", "printer", "processor", "program", 
+    "radio", "remote", "robot", "router", "satellite", "scanner", "screen", "server", "smartphone", "software", 
+    "speaker", "switch", "tablet", "tech", "television", "tv", "usb", "video", "virus", "vr", 
+    "webcam", "website", "wifi", "wire", "wrench"
 ];
 
 /**
@@ -882,6 +1069,10 @@ const ProfileStore = {
         name: '',
         avatarColor: '#fff',
         avatarFace: '(^.^)'
+        skins: {
+            colors: ['#FF5733', '#33FF57', '#3357FF', '#F333FF', '#33FFF3', '#FF3380', '#8033FF', '#33FF80', '#FF8033', '#80FF33', '#3380FF', '#B333FF', '#33FFB3', '#FFB333', '#B3FF33', '#33B3FF', '#FF33B3', '#33FF33', '#3333FF', '#FF3333', '#FFFF33', '#33FFFF', '#FF33FF', '#C0C0C0', '#808080', '#800000', '#808000', '#008000', '#800080', '#008080', '#000080', '#FFA500', '#A52A2A', '#800000', '#D2691E', '#FF7F50', '#6495ED', '#DC143C', '#00FFFF', '#00008B'],
+            faces: ['(^.^)', '(o_o)', '(-_-)', '(>_<)', '(T_T)', '(0_0)', '(^_-)', '(@_@)', '(¬_¬)', '(p_q)', '(o_O)', '(^v^)', '(u_u)', '(x_x)', '(X_X)', '(;_;)', '(~_~)', '(◕‿◕)', '(O.O)', '(^3^)', '(♥_♥)', '(¬‿¬)', '(≖_≖)', '(◡‿◡)', '(☼_☼)', '(^o^)', '(>.~)', '(Q_Q)', '(V_V)', '(T.T)', '(◣_◢)', '(͠≖ ͜ʖ͠≖)', 'ʕ•ᴥ•ʔ', '(▀̿Ĺ̯▀̿ ̿)', '(づ｡◕‿‿◕｡)づ', '(ಥ﹏ಥ)', '(ノಠ益ಠ)ノ', '¯\\_(ツ)_/¯', 'ಠ_ಠ', '( ͡° ͜ʖ ͡°)']
+        },
     },
     faces: ['(^.^)', '(o_o)', '(-_-)', '(>_<)', '(T_T)', '(0_0)', '(^_-)', '(@_@)'],
     
@@ -994,6 +1185,10 @@ const UIManager = {
         
         peers.forEach((peer, i) => {
             const div = document.createElement('div');
+            let medal = '';
+            if (i === 0 && peer.score > 0) medal = ' 👑';
+            else if (i === 1 && peer.score > 0) medal = ' 🥈';
+            else if (i === 2 && peer.score > 0) medal = ' 🥉';
             div.className = `player-card ${GameEngine.state.currentTurn === peer.id ? 'is-drawer' : ''} ${peer.guessedCorrectly ? 'has-guessed' : ''}`;
             
             const rank = i + 1;
@@ -1001,7 +1196,7 @@ const UIManager = {
                 <div style="font-weight:bold; color:var(--text-dim); width: 20px;">#${rank}</div>
                 <div class="entity-avatar" style="width: 35px; height: 35px; font-size: 1rem; background:${peer.avatarColor}">${peer.avatarFace}</div>
                 <div class="player-card-info">
-                    <div class="player-card-name">${peer.name}</div>
+                    <div class="player-card-name">${peer.name + medal}</div>
                     <div class="player-card-score">Score: ${peer.score}</div>
                 </div>
                 ${GameEngine.state.currentTurn === peer.id ? '<div class="drawer-icon">✏️</div>' : ''}
@@ -1070,7 +1265,10 @@ const ChatSystem = {
         e.preventDefault();
         const input = document.getElementById('chat-input');
         const text = input.value.trim();
-        if(!text) return;
+        let processedText = text;
+        const emojiMap = { ':D': '😃', ':)': '😊', ':(': '☹️', '<3': '❤️', ':P': '😛', '!!!': '🔥' };
+        Object.keys(emojiMap).forEach(key => { processedText = processedText.replace(key, emojiMap[key]); });
+        if(!processedText) return;
         input.value = '';
 
         if (GlobalState.appPhase !== 'RUNNING') return;
@@ -1297,6 +1495,12 @@ const NetworkManager = {
             DrawingSystem.clearDirect();
         }
     }
+    kickPlayer: (peerId) => {
+        if (GlobalState.netRole === 'HOST' && NetworkManager.clientMap[peerId]) {
+            NetworkManager.clientMap[peerId].send({ op: 'REJECT', msg: 'KICKED BY HOST' });
+            NetworkManager.dropClient(peerId);
+        }
+    },
 };
 
 /**
@@ -1610,6 +1814,9 @@ const GameEngine = {
 
         GameEngine.state.timerInt = setInterval(() => {
             GameEngine.state.timeLeft--;
+            if (GameEngine.state.timeLeft === 25) { 
+                NetworkManager.broadcast({ op: 'CHAT', type: 'sys', msg: "HINT: Starts with '" + GameEngine.state.currentWord[0].toUpperCase() + "'" });
+            }
             NetworkManager.broadcast({ op: 'SYNC_STATE', time: GameEngine.state.timeLeft });
             document.getElementById('time-display').innerText = GameEngine.state.timeLeft;
             
