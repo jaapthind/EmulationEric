@@ -580,6 +580,51 @@
     ::-webkit-scrollbar-track { background: var(--bg-void); }
     ::-webkit-scrollbar-thumb { background: var(--border-line); border-radius: 4px; }
     ::-webkit-scrollbar-thumb:hover { background: var(--text-dim); }
+    /* --- ADAPTIVE PATCH: ADD THIS AT THE BOTTOM OF YOUR STYLE TAG --- */
+    html, body, #interface-root, .view-controller {
+        height: 100vh !important;
+        max-height: 100vh !important;
+        overflow: hidden !important;
+    }
+
+    /* Force the grid to stay within the window bounds */
+    .game-container {
+        height: 100vh !important;
+        max-height: 100vh !important;
+        grid-template-rows: 60px 1fr 80px !important; /* Forces header and footer sizes */
+        padding: 8px !important;
+        gap: 8px !important;
+    }
+
+    /* Prevent sidebars from pushing the window down */
+    .game-players, .game-chat, .game-board {
+        min-height: 0 !important; 
+    }
+
+    /* THE FIX: Scale the canvas like an image so it never cuts off */
+    .canvas-wrapper {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    #draw-canvas {
+        width: 100% !important;
+        height: auto !important;
+        max-width: 100% !important;
+        max-height: 100% !important;
+        object-fit: contain !important; /* Keeps the 800x600 ratio scaled down */
+    }
+
+    /* Mobile/Small Window adjustment: Shrink sidebars if width is low */
+    @media (max-width: 1000px) {
+        .game-container {
+            grid-template-columns: 150px 1fr 200px !important;
+        }
+        .brand-title {
+            font-size: 3rem !important;
+        }
+    }
 
 </style>
 
@@ -1183,6 +1228,10 @@ const UIManager = {
         
         peers.forEach((peer, i) => {
             const div = document.createElement('div');
+            let medal = '';
+            if (i === 0 && peer.score > 0) medal = ' 👑';
+            else if (i === 1 && peer.score > 0) medal = ' 🥈';
+            else if (i === 2 && peer.score > 0) medal = ' 🥉';
             div.className = `player-card ${GameEngine.state.currentTurn === peer.id ? 'is-drawer' : ''} ${peer.guessedCorrectly ? 'has-guessed' : ''}`;
             
             const rank = i + 1;
@@ -1190,8 +1239,8 @@ const UIManager = {
                 <div style="font-weight:bold; color:var(--text-dim); width: 20px;">#${rank}</div>
                 <div class="entity-avatar" style="width: 35px; height: 35px; font-size: 1rem; background:${peer.avatarColor}">${peer.avatarFace}</div>
                 <div class="player-card-info">
-                    <div class="player-card-name">${peer.name}</div>
-                    <div class="player-card-score">Score: ${peer.score}</div>
+                <div class="player-card-name">${peer.name + medal}</div>
+                <div class="player-card-score">Score: ${peer.score}</div>
                 </div>
                 ${GameEngine.state.currentTurn === peer.id ? '<div class="drawer-icon">✏️</div>' : ''}
                 ${peer.guessedCorrectly ? '<div class="drawer-icon" style="color:var(--accent-safe)">✔️</div>' : ''}
@@ -1799,6 +1848,9 @@ const GameEngine = {
 
         GameEngine.state.timerInt = setInterval(() => {
             GameEngine.state.timeLeft--;
+            if (GameEngine.state.timeLeft === 25) { 
+                NetworkManager.broadcast({ op: 'CHAT', type: 'sys', msg: "HINT: Starts with '" + GameEngine.state.currentWord[0].toUpperCase() + "'" });
+            }
             NetworkManager.broadcast({ op: 'SYNC_STATE', time: GameEngine.state.timeLeft });
             document.getElementById('time-display').innerText = GameEngine.state.timeLeft;
             
@@ -1938,7 +1990,23 @@ const GameEngine = {
     clientEndTurn: (packet) => {
         document.getElementById('toolbar').classList.remove('is-active');
         document.getElementById('word-display').innerText = packet.word;
-        UIManager.setOverlay(true, "TURN OVER", `The word was: ${packet.word}`);
+        
+        // BUILD SCOREBOARD HTML
+        const sortedPeers = Object.values(GlobalState.registry).sort((a,b) => b.score - a.score);
+        let scoreHtml = '<div style="margin-top:20px; width:100%; max-width:300px;">';
+        sortedPeers.forEach((p, i) => {
+            const medal = i === 0 ? '👑 ' : '';
+            scoreHtml += `
+                <div style="display:flex; justify-content:space-between; padding:5px 0; border-bottom:1px solid #333;">
+                    <span>${medal}${p.name}</span>
+                    <span style="color:var(--core-primary)">+${p.guessedCorrectly ? 'PTS' : '0'}</span>
+                    <span style="font-weight:bold;">${p.score}</span>
+                </div>`;
+        });
+        scoreHtml += '</div>';
+
+        // SHOW OVERLAY WITH SCORES
+        UIManager.setOverlay(true, "TURN OVER", `The word was: ${packet.word}`, scoreHtml);
     },
     
     clientEndGame: (packet) => {
